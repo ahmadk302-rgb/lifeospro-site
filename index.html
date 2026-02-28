@@ -97,6 +97,17 @@
   }
   .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-emerald-glow); }
   .nav-mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); cursor: pointer; }
+  .app-status-badge {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; font-weight: 600;
+    background: rgba(245,158,11,0.12); color: #f59e0b;
+    border: 1px solid rgba(245,158,11,0.25);
+    padding: 4px 12px; border-radius: 20px;
+    animation: badge-pulse 2s infinite; white-space: nowrap;
+  }
+  @keyframes badge-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
 
   /* ===== HERO ===== */
   .hero {
@@ -975,6 +986,7 @@
       <div class="nav-logo-mark">OS</div>
       Life OS Pro
     </a>
+    <span class="app-status-badge">Beta · March 2026</span>
     <ul class="nav-links">
       <li><a href="#how-it-works">How It Works</a></li>
       <li><a href="#features">Features</a></li>
@@ -1994,6 +2006,16 @@ if (SITE_MODE === "live") {
     // Update nav CTA
     const navCta = document.querySelector('.nav-cta');
     if (navCta) { navCta.textContent = 'Start Building'; navCta.href = APP_URL; }
+
+    // Update status badge for live mode
+    const badge = document.querySelector('.app-status-badge');
+    if (badge) {
+      badge.textContent = 'Live';
+      badge.style.background = 'rgba(52,211,153,0.12)';
+      badge.style.color = '#34d399';
+      badge.style.borderColor = 'rgba(52,211,153,0.25)';
+      badge.style.animation = 'none';
+    }
 
     // Update hero CTA
     const heroCta = document.querySelector('.hero .btn-primary.cta-link');
