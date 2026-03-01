@@ -1,4 +1,6 @@
-require('dotenv').config({ path: '../.env' });
+if (!process.env.RAILWAY_ENVIRONMENT) {
+  require('dotenv').config({ path: '../.env' });
+}
 const express = require('express');
 const cors = require('cors');
 const Stripe = require('stripe');
