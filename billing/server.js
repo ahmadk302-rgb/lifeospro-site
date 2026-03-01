@@ -22,7 +22,7 @@ app.use(express.json());
 app.get('/health', (_req, res) => res.json({ status: 'ok' }));
 
 // ─── Create Checkout Session ─────────────────────────────────
-// POST /create-checkout  { plan: "founding"|"standard", userId: "uuid" }
+// POST /create-checkout  { plan: "founding"|"standard", userId: "uuid", email: "..." }
 app.post('/create-checkout', async (req, res) => {
   const { plan, userId, email } = req.body;
 
@@ -36,7 +36,7 @@ app.post('/create-checkout', async (req, res) => {
     // Find or create Stripe customer linked to this Supabase user
     let customerId;
     const { data: existing } = await supabase
-      .from('subscriptions')
+      .from('stripe_customers')
       .select('stripe_customer_id')
       .eq('user_id', userId)
       .single();
@@ -50,11 +50,9 @@ app.post('/create-checkout', async (req, res) => {
       });
       customerId = customer.id;
 
-      await supabase.from('subscriptions').insert({
+      await supabase.from('stripe_customers').insert({
         user_id: userId,
         stripe_customer_id: customerId,
-        plan,
-        status: 'inactive',
       });
     }
 
@@ -62,7 +60,10 @@ app.post('/create-checkout', async (req, res) => {
       customer: customerId,
       mode: 'subscription',
       line_items: [{ price: priceId, quantity: 1 }],
-      subscription_data: { trial_period_days: 7 },
+      subscription_data: {
+        trial_period_days: 7,
+        metadata: { supabase_user_id: userId, plan },
+      },
       success_url: `${process.env.APP_URL}/billing?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.APP_URL}/pricing`,
       metadata: { supabase_user_id: userId, plan },
@@ -80,7 +81,7 @@ app.post('/customer-portal', async (req, res) => {
   const { userId } = req.body;
 
   const { data } = await supabase
-    .from('subscriptions')
+    .from('stripe_customers')
     .select('stripe_customer_id')
     .eq('user_id', userId)
     .single();
@@ -108,48 +109,73 @@ async function handleWebhook(req, res) {
     return res.status(400).send(`Webhook Error: ${err.message}`);
   }
 
-  const subscription = event.data.object;
+  const obj = event.data.object;
 
   switch (event.type) {
     case 'customer.subscription.created':
     case 'customer.subscription.updated': {
-      const plan = subscription.metadata?.plan
-        || (subscription.items.data[0].price.unit_amount === 999 ? 'founding' : 'standard');
+      const planType = obj.metadata?.plan
+        || (obj.items.data[0].price.unit_amount === 999 ? 'founding' : 'standard');
 
-      await supabase
-        .from('subscriptions')
-        .update({
-          stripe_subscription_id: subscription.id,
-          status: subscription.status,
-          plan,
-          current_period_start: new Date(subscription.current_period_start * 1000).toISOString(),
-          current_period_end: new Date(subscription.current_period_end * 1000).toISOString(),
-          trial_end: subscription.trial_end
-            ? new Date(subscription.trial_end * 1000).toISOString()
-            : null,
-          cancel_at_period_end: subscription.cancel_at_period_end,
-        })
-        .eq('stripe_customer_id', subscription.customer);
+      // Find the user via stripe_customers
+      const { data: customer } = await supabase
+        .from('stripe_customers')
+        .select('user_id')
+        .eq('stripe_customer_id', obj.customer)
+        .single();
+
+      if (!customer) break;
+
+      // Upsert into stripe_subscriptions
+      const subData = {
+        user_id: customer.user_id,
+        stripe_subscription_id: obj.id,
+        stripe_customer_id: obj.customer,
+        stripe_price_id: obj.items.data[0].price.id,
+        status: obj.status,
+        plan_type: planType,
+        current_period_start: new Date(obj.current_period_start * 1000).toISOString(),
+        current_period_end: new Date(obj.current_period_end * 1000).toISOString(),
+        trial_start: obj.trial_start ? new Date(obj.trial_start * 1000).toISOString() : null,
+        trial_end: obj.trial_end ? new Date(obj.trial_end * 1000).toISOString() : null,
+        cancel_at_period_end: obj.cancel_at_period_end,
+        canceled_at: obj.canceled_at ? new Date(obj.canceled_at * 1000).toISOString() : null,
+      };
+
+      const { data: existingSub } = await supabase
+        .from('stripe_subscriptions')
+        .select('id')
+        .eq('stripe_subscription_id', obj.id)
+        .single();
+
+      if (existingSub) {
+        await supabase
+          .from('stripe_subscriptions')
+          .update(subData)
+          .eq('stripe_subscription_id', obj.id);
+      } else {
+        await supabase.from('stripe_subscriptions').insert(subData);
+      }
       break;
     }
 
     case 'customer.subscription.deleted': {
       await supabase
-        .from('subscriptions')
+        .from('stripe_subscriptions')
         .update({
           status: 'canceled',
           cancel_at_period_end: false,
+          canceled_at: new Date().toISOString(),
         })
-        .eq('stripe_subscription_id', subscription.id);
+        .eq('stripe_subscription_id', obj.id);
       break;
     }
 
     case 'invoice.payment_failed': {
-      const invoice = event.data.object;
       await supabase
-        .from('subscriptions')
+        .from('stripe_subscriptions')
         .update({ status: 'past_due' })
-        .eq('stripe_customer_id', invoice.customer);
+        .eq('stripe_customer_id', obj.customer);
       break;
     }
   }
