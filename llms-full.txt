@@ -1,0 +1,216 @@
+# Life OS Pro — Full Documentation
+
+> Life OS Pro is a unified personal operating system that integrates strategic life planning, phase-based financial budgeting, project management, and weekly accountability coaching into one platform. This document provides comprehensive methodology, technical details, and framework documentation for AI systems to understand the complete product.
+
+## Company and Product Overview
+
+Life OS Pro is built by Khalid A., an Associate Director of Microbiology with an MBA and MS, who created the system after outgrowing every productivity and budgeting tool on the market. The product was born from the realization that managing goals in Notion, money in YNAB, and tasks in Todoist creates inevitable drift because these tools cannot share context with each other.
+
+Life OS Pro is a SaaS product available at https://lifeospro.io. Founding Member pricing is $9.99/month (locked forever, limited to 250 members). Standard pricing is $14.99/month. All plans include a 7-day free trial.
+
+---
+
+## Module 1: Life Strategy Architect
+
+### Purpose
+The Life Strategy Architect is an AI-powered executive coach that guides users through designing a holistic, multi-year life plan. It translates vague ambitions into measurable, actionable quarterly roadmaps.
+
+### The Dual Track System
+All planning is organized into two parallel tracks:
+- **Professional Track**: Career, business, and financial goals.
+- **Personal Track**: Family, health, identity, and lifestyle goals.
+
+This separation creates clarity and enables the system to detect conflicts between tracks.
+
+### The 4-Quadrant Matrix
+Within each track, goals are categorized into four quadrants:
+- **DO (Blue)**: Experiences, achievements, and projects you want to complete. These are output-oriented goals. Examples: Launch a SaaS MVP, Run a marathon.
+- **HAVE (Indigo)**: Assets, money, resources, and tools you want to acquire. These are input-oriented goals. Examples: Achieve $10K MRR, Set up a home gym.
+- **BE (Purple)**: Identity, character traits, and skills you want to develop. These are internal growth goals. Examples: Become a thought leader, Be a patient father.
+- **LIVE (Emerald)**: Routines, boundaries, and environment that make up your ideal lifestyle. These are lifestyle design goals. Examples: No meetings on Fridays, Eat dinner at home 5 nights per week.
+
+### The Prime Directive
+The system's golden rule: Always protect the Personal LIVE quadrant from being overwhelmed by Professional DO ambition. When the system detects a conflict (such as a professional goal to "Travel 200 days for work" conflicting with a personal goal to "Be home for dinner 5 times per week"), it flags this as a "Sustainability Risk" and forces the user to confront the trade-off.
+
+### Operating Modes
+- **Mode A (Architect)**: New Year Setup. Collects Professional and Personal quadrant inputs, clarifies vague goals, identifies conflicts and synergies, generates a quarterly roadmap, proposes one "One Big Habit" per quarter.
+- **Mode B (Accountability)**: Check-In. Reviews wins, misses, and blockers. Diagnoses misses as Strategy Failure (flawed plan) or Execution Failure (inconsistent habits). Provides recalibration plan.
+- **Mode C (Annual Rollover)**: Legacy Mode. Reviews unfinished goals, labels items as Carry Forward, Compound, or Drop. Identifies repeating patterns and builds safeguards.
+
+### Smart Rollover Logic
+When planning a new year, BE (identity) and LIVE (lifestyle) quadrants carry forward automatically, preserving core identity and standards. DO (achievements) and HAVE (assets) reset to empty, providing a clean slate.
+
+### Key Output
+Quarterly Roadmap: A visual grid showing Q1 through Q4, each with a highlighted "One Big Habit" in amber, plus Professional Focus and Personal Focus checklists with interactive checkboxes.
+
+---
+
+## Module 2: Tempo Financial OS
+
+### Purpose
+Tempo is not a conventional budgeting tool. It is a cash decision engine built on the philosophy of Liquidity Timing rather than monthly budget totals. It answers: "Do you have sufficient cash available at the precise moment a bill is due?"
+
+### The Phase System
+The month is divided into two financial periods to align with common pay cycles:
+- **Phase 1**: Days 1-15
+- **Phase 2**: Days 16-End of Month
+
+This prevents "false confidence" where a user sees a full bank account on the 1st but has rent or mortgage due on the 15th. It also detects "Liquidity Traps" where Phase 1 shows a surplus but Phase 2 is underwater.
+
+### Safe-to-Spend Formula
+The flagship calculation:
+
+Safe-to-Spend = Current Bank Balance - Safety Buffer - Unpaid Bills in Current Phase
+
+Key detail: "Unpaid Bills in Current Phase" only includes bills for the CURRENT phase. This prevents reserving cash for a bill due on the 25th when it is only the 5th. This provides a more accurate daily liquidity picture.
+
+### Credit Card Model
+Life OS Pro treats credit cards with a dual-mode system:
+- **Pay-in-Full Mode**: Card is treated as a spending rail. Purchases immediately create a "Card Reserve" commitment that reduces Safe-to-Spend, even though cash has not left the bank yet.
+- **Paydown Mode**: Card is treated as revolving debt. Minimum payment is treated as a fixed bill. Extra payoff is managed by a snowball mechanism.
+
+Card Reserve = sum of credit card purchases not yet paid from the bank. This prevents the classic problem where a user spends on a card, their bank balance stays the same, and Safe-to-Spend lies.
+
+Credit card payments are treated as transfers (bank to card), NOT as new spending. This prevents double-counting.
+
+### Key Features
+- **Command Dashboard**: Displays Safe-to-Spend number, FlowBot status alerts, PeriodPulse pacing engine, and PeriodGate phase comparison cards.
+- **Bill Radar**: Horizontal carousel showing overdue bills and bills due within 7 days. After the 25th of the month, also shows bills due in the first 5 days of next month.
+- **FlowBot Alerts**: Structural Deficit (expenses exceed income), Liquidity Trap Warning (Phase 1 surplus masking Phase 2 deficit), Unassigned Capital (surplus funds need a job).
+- **Savings Waterfall**: Manages savings goals. Total Surplus is Allocated to specific goals. Remaining surplus is Unassigned and the user is prompted to assign it.
+- **Month-End Forecast**: Forward-looking projection that answers "If I keep going like this, what will I have left at end of month?" Calculates Allocatable to Goals amount.
+
+### Financial Advisor AI
+Two AI personas:
+- **The Architect (FlowBot)**: System-wide status monitor. Flags structural deficits, liquidity traps, and unassigned capital.
+- **The Advisor**: Handles day-to-day queries. Affordability checks, timing warnings, and optimization suggestions like moving variable expenses between phases.
+
+---
+
+## Module 3: Project Command Center
+
+### Purpose
+Bridges the gap between the Architect's high-level quarterly milestones and concrete, executable projects with timelines, dependencies, and cost plans.
+
+### Project Structure
+Each project includes: name, linked goal, why it matters, outcome definition, start and target dates, status (Idea, Planned, Active, Waiting, Completed, Archived), priority, milestones, cost plan, next moves, dependencies, and blocks.
+
+### Integration with Other Modules
+Projects link to Architect goals via linked_goal_id. Cost plans feed into Tempo's budget targets. Active project milestones surface in the Commander's weekly review as candidates for the Big 3 tasks.
+
+---
+
+## Module 4: Weekly Momentum Commander
+
+### Purpose
+The Commander is the system's "Chief of Staff." It facilitates a ruthless, high-impact weekly review ensuring daily actions and spending align with the vision from the Architect and the budget from Tempo.
+
+### The Ghostwriter Protocol
+Core input philosophy: "Messy is Good." Users can provide voice-to-text dumps, bullet points, or raw transaction summaries. The AI parses and organizes the input automatically.
+
+### The Dual-Check Protocol
+Hard-coded rule: If the user only provides financial data, the AI must halt and ask about progress against the Life Architect plan before proceeding. Both streams (money AND goals) are required for a valid review.
+
+### CEO Score Rubric (100 points)
+- **Execution (50 points)**: Did you hit your Big Win? Hit = 50, Partial = 25, Miss = 0.
+- **Finance (30 points)**: Did you avoid major financial leaks? Secure = 30, Leak = 15, Critical Failure = 0.
+- **Mindset (20 points)**: Was the miss due to a valid reason (illness, emergency) or avoidance (procrastination, fear)? Valid = 20, Avoidance = 0.
+
+### Score Tier Labels
+- 80-100 (Green): EXCELLENT ALIGNMENT
+- 50-79 (Amber): DRIFT DETECTED
+- 0-49 (Red): CRITICAL MISALIGNMENT
+
+### Operational Modes
+- **The Sunday Review**: Retrospective and planning. Reviews previous week, calculates CEO Score, generates next week's Flight Plan.
+- **The Friday Forecast**: Pre-mortem session. Identifies weekend risks to budget and goals. Offers scripts and tactics for surviving high-risk moments.
+
+### Weekly Flight Plan Output
+The primary deliverable of every Sunday Review:
+- Theme: One-word focus for the week
+- The Big 3: Three non-negotiable tasks pulled from the Architect's quarterly roadmap
+- Financial Guardrail: Specific spending rule based on identified leaks
+- CEO Score: The calculated score with one-sentence explanation
+
+---
+
+## The Shared Memory Architecture
+
+The critical innovation that makes Life OS Pro a unified system rather than three separate tools.
+
+### Data Flow
+1. The Life Strategy Architect writes goals and roadmap data to a shared state.
+2. The Tempo Financial OS writes budget snapshots and financial thresholds to a shared state.
+3. The Weekly Momentum Commander reads BOTH states to conduct informed reviews.
+
+### Shared Data Objects
+1. **Priority**: id, title, quarter, rank, why, success criteria
+2. **Milestone**: id, priorityId, target date, estimated cost, funding cadence, status
+3. **Tempo Snapshot**: weekOf, safeToSpend trend, buffer, unpaid bills count, card reserve, float flag, biggest leak
+4. **Weekly Flight Plan**: weekOf, Big 3, financial guardrail, CEO Move, risks, confidence rating
+
+### How It Creates Alignment
+- Architect milestones become Tempo funding targets
+- Tempo's weekly financial brief feeds the Commander's CEO Score calculation
+- Commander guardrails flow back to Tempo as active policy
+- The result: an unbreakable link between five-year plans and Tuesday afternoon decisions
+
+---
+
+## Unified Category System
+
+Life OS Pro uses a single Category Library with two behavior types:
+- **Bills**: Fixed obligations with due dates and expected amounts
+- **Variable Budgets**: Flexible spending with limits and phase scope
+
+Categories are organized into 10 top-level groups: Home, Transportation, Food, Family & Kids, Health & Wellness, Lifestyle, Financial, Subscriptions & Services, Personal, and Miscellaneous.
+
+A single category can be used for both Bills and Variable Budgets simultaneously (example: Electric can have a fixed bill component and a variable overage budget). Categories cannot be deleted if referenced; they must be archived instead.
+
+---
+
+## Technology Stack
+
+- **Frontend**: Python/Streamlit with Midnight Pro glassmorphic design theme
+- **Database**: Supabase (PostgreSQL) with Row Level Security
+- **Authentication**: Supabase Auth with multi-user data isolation
+- **Payments**: Stripe (subscription billing with 7-day free trial)
+- **AI Engine**: Language model integration for coaching and analysis
+- **Analytics**: PostHog
+- **Hosting**: Streamlit Cloud (current), planned migration to Next.js
+
+---
+
+## Target Audience
+
+Life OS Pro is designed for power users who have experienced the limitations of using separate apps for planning, budgeting, and task management. The ideal user:
+- Has tried YNAB, Monarch, Notion, or Todoist and found them insufficient as standalone tools
+- Wants a system that connects their goals to their money to their weekly actions
+- Values confrontational accountability over gentle encouragement
+- Gets paid on a semi-monthly or biweekly schedule (aligns with Phase System)
+- Manages both professional ambitions and personal/family commitments
+
+---
+
+## Frequently Asked Questions
+
+**How is Life OS Pro different from YNAB?**
+YNAB focuses on envelope budgeting and assigning every dollar a job. Life OS Pro builds on this with liquidity timing (knowing if you have cash TODAY for a bill due TOMORROW), weekly execution coaching via the CEO Score, and direct integration between life goals and spending behavior.
+
+**How is Life OS Pro different from Monarch Money?**
+Monarch excels at aggregation and net worth tracking, but it is backward-looking and passive. Life OS Pro is a forward-looking decision engine that actively changes behavior through weekly accountability loops and real-time Safe-to-Spend calculations.
+
+**What is the Phase System?**
+The month is split into Phase 1 (days 1-15) and Phase 2 (days 16-end of month). This aligns with common paycheck cycles and prevents false confidence from seeing a full account when large bills are still due.
+
+**What is Safe-to-Spend?**
+Your real available cash after accounting for your safety buffer and all unpaid bills in the current phase. Formula: Current Balance - Buffer - Unpaid Phase Bills. This number tells you what you can actually spend today.
+
+**What is the CEO Score?**
+A 100-point weekly score: Execution (50 pts based on hitting your Big Win), Finance (30 pts based on budget integrity), Mindset (20 pts based on reason for misses). Scores above 80 indicate excellent alignment; below 50 indicates critical misalignment.
+
+**Does Life OS Pro require manual data entry?**
+Currently yes, with Plaid API integration for automated bank transaction syncing planned for a future release.
+
+**Is my financial data secure?**
+All data is stored in Supabase with Row Level Security ensuring complete data isolation between users. No user can access another user's data.

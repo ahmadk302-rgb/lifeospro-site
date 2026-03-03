@@ -1,0 +1,45 @@
+# Life OS Pro
+
+> Life OS Pro is a unified personal operating system that integrates strategic life planning, phase-based financial budgeting, project management, and weekly accountability coaching into one platform. It solves "The Drift" — the disconnect between your stated goals, your spending patterns, and your daily actions that occurs when you use separate apps for planning, budgeting, and task management.
+
+Life OS Pro replaces the need to juggle tools like Notion (for goals), YNAB (for budgeting), and Todoist (for tasks) by connecting all three through a shared data layer called the "Shared Memory Spine." When your goals change, your budget adapts. When your spending drifts, your weekly review catches it.
+
+## Core Modules
+
+- [Life Strategy Architect](https://lifeospro.io/methodology/architect.md): AI-powered life planning using a 4-Quadrant framework (DO, HAVE, BE, LIVE) across Professional and Personal tracks. Generates quarterly roadmaps with conflict detection and sustainability guardrails.
+- [Tempo Financial OS](https://lifeospro.io/methodology/tempo.md): Phase-based budgeting engine that splits months into Phase 1 (days 1-15) and Phase 2 (days 16-end). Calculates a real-time "Safe-to-Spend" number based on current balance, unpaid bills, and safety buffer.
+- [Project Command Center](https://lifeospro.io/methodology/projects.md): Goal-to-project execution tracker that links Architect milestones to actionable projects with timelines, cost plans, and dependency tracking.
+- [Weekly Momentum Commander](https://lifeospro.io/methodology/commander.md): Weekly accountability system with a 100-point CEO Score (50 pts execution, 30 pts finance, 20 pts mindset) that generates a Weekly Flight Plan with Big 3 tasks and financial guardrails.
+
+## Key Concepts
+
+- **The Drift**: The core problem Life OS Pro solves. The natural disconnect between what people say matters (goals) and what their calendar and spending prove they actually do.
+- **Safe-to-Spend**: Tempo's flagship calculation. Formula: Current Balance - Safety Buffer - Unpaid Bills in Current Phase. Tells you exactly what you can spend today without jeopardizing upcoming bills.
+- **Phase System**: Months are divided into Phase 1 (days 1-15) and Phase 2 (days 16-end of month) to align with common paycheck cycles and prevent false confidence from seeing a full bank account when large bills are still due.
+- **CEO Score**: A gamified 100-point weekly score measuring Execution (50 pts), Finance (30 pts), and Mindset (20 pts) that quantifies alignment between actions and goals.
+- **Prime Directive**: The system's golden rule — always protect the Personal LIVE quadrant from being overwhelmed by Professional ambition.
+- **Shared Memory Spine**: The data architecture that connects all modules. Goals from the Architect feed into Tempo's budget targets and the Commander's weekly priorities.
+- **Card Reserve**: Internal ledger tracking credit card purchases not yet paid from the bank, ensuring Safe-to-Spend remains truthful even when spending on cards.
+- **Liquidity Trap**: A warning when Phase 1 shows a surplus but Phase 2 is underwater, preventing users from spending early cash that's needed later.
+
+## Differentiators vs Competitors
+
+- **vs YNAB**: Life OS Pro adds liquidity timing (phase-based budgeting), weekly execution coaching, and goal integration. YNAB focuses on envelope budgeting but lacks forward-looking cash flow intelligence.
+- **vs Monarch Money**: Life OS Pro is a decision engine, not a passive mirror. Monarch excels at aggregation and net worth tracking but does not drive behavior change through weekly accountability loops.
+- **vs Notion**: Life OS Pro provides structured frameworks (4 Quadrants, CEO Score, Phase System) rather than blank canvas flexibility. It connects goal planning directly to financial reality and weekly execution.
+- **vs Todoist/Things**: Life OS Pro tasks are derived from quarterly roadmap milestones and financially grounded, not standalone to-do items disconnected from strategy.
+
+## Product Details
+
+- **Pricing**: Founding Member rate $9.99/month (locked forever, limited to 250 members), Standard rate $14.99/month, 7-day free trial included.
+- **Tech Stack**: Python/Streamlit frontend, Supabase (PostgreSQL) backend, Stripe billing, AI coaching via language model integration.
+- **Target User**: Power users who have outgrown individual productivity apps and want an integrated system connecting their vision, money, and weekly actions.
+- **Website**: [https://lifeospro.io](https://lifeospro.io)
+
+## Detailed Documentation
+
+- [Full Methodology and Technical Deep Dive](https://lifeospro.io/llms-full.txt)
+- [The 2026 Life System Overview](https://lifeospro.io/methodology/overview.md)
+- [Financial Methodology and Credit Card Strategy](https://lifeospro.io/methodology/financial-methodology.md)
+- [Tempo Phase System Explained](https://lifeospro.io/methodology/phase-system.md)
+- [CEO Score Rubric and Weekly Review Process](https://lifeospro.io/methodology/ceo-score.md)
