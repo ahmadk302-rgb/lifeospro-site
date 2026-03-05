@@ -1140,6 +1140,125 @@
     .founder-badges { justify-content: center; }
     .tempo-ctas { flex-direction: column; }
     .tempo-ctas .btn-amber, .tempo-ctas .btn-secondary { width: 100%; text-align: center; justify-content: center; }
+    .plan-compare { grid-template-columns: 1fr; }
+    .plan-ctas { flex-direction: column; }
+    .plan-ctas a { width: 100%; text-align: center; justify-content: center; }
+  }
+
+  /* ===== PLAN COMPARISON BLOCK ===== */
+  .plan-compare-wrap {
+    margin: 72px 0 0;
+  }
+  .plan-compare-heading {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .plan-compare-heading h3 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    font-weight: 400; letter-spacing: -0.02em;
+    margin-bottom: 10px;
+  }
+  .plan-compare-heading p {
+    color: var(--text-secondary); font-size: 0.95rem;
+    font-weight: 300; max-width: 520px; margin: 0 auto;
+  }
+  .plan-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  .plan-col {
+    border-radius: var(--radius-xl);
+    padding: 36px 32px;
+    position: relative;
+  }
+  .plan-col.tempo {
+    background: linear-gradient(145deg, rgba(245,158,11,0.07), rgba(245,158,11,0.02));
+    border: 1px solid rgba(245,158,11,0.25);
+  }
+  .plan-col.pro {
+    background: linear-gradient(145deg, rgba(52,211,153,0.07), rgba(52,211,153,0.02));
+    border: 1px solid rgba(52,211,153,0.2);
+  }
+  .plan-col-badge {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    padding: 4px 12px; border-radius: 100px;
+    margin-bottom: 20px;
+  }
+  .plan-col.tempo .plan-col-badge {
+    background: rgba(245,158,11,0.15); color: var(--accent-amber);
+    border: 1px solid rgba(245,158,11,0.25);
+  }
+  .plan-col.pro .plan-col-badge {
+    background: rgba(52,211,153,0.12); color: var(--accent-emerald);
+    border: 1px solid rgba(52,211,153,0.2);
+  }
+  .plan-col-name {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.75rem; font-weight: 400;
+    letter-spacing: -0.02em; margin-bottom: 4px;
+  }
+  .plan-col.tempo .plan-col-name { color: var(--text-primary); }
+  .plan-col.pro .plan-col-name { color: var(--text-primary); }
+  .plan-col-price {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem; margin-bottom: 28px; font-weight: 500;
+  }
+  .plan-col.tempo .plan-col-price { color: var(--accent-amber); }
+  .plan-col.pro .plan-col-price { color: var(--accent-emerald); }
+  .plan-divider {
+    height: 1px; margin-bottom: 24px;
+  }
+  .plan-col.tempo .plan-divider { background: rgba(245,158,11,0.12); }
+  .plan-col.pro .plan-divider { background: rgba(52,211,153,0.12); }
+  .plan-check-list {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .plan-check-list li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5;
+  }
+  .plan-check-list li .chk {
+    flex-shrink: 0; margin-top: 1px;
+    font-weight: 700; font-size: 0.8rem;
+  }
+  .plan-col.tempo .chk { color: var(--accent-amber); }
+  .plan-col.pro .chk { color: var(--accent-emerald); }
+  .plan-check-list li strong { color: var(--text-primary); font-weight: 500; }
+  .plan-check-list .plan-highlight {
+    margin-top: 8px; padding: 10px 14px;
+    border-radius: var(--radius-sm); font-size: 0.82rem;
+  }
+  .plan-col.tempo .plan-highlight {
+    background: rgba(245,158,11,0.08); color: var(--accent-amber);
+    border: 1px solid rgba(245,158,11,0.15);
+  }
+  .plan-col.pro .plan-highlight {
+    background: rgba(52,211,153,0.08); color: var(--accent-emerald);
+    border: 1px solid rgba(52,211,153,0.15);
+  }
+  .plan-ctas {
+    display: flex; gap: 16px;
+    margin-top: 40px; justify-content: center; flex-wrap: wrap;
+  }
+  .btn-outline-light {
+    background: transparent; color: var(--text-primary);
+    padding: 14px 36px; border-radius: 100px;
+    font-weight: 500; font-size: 1rem;
+    text-decoration: none; transition: all 0.25s;
+    border: 1px solid rgba(255,255,255,0.15); cursor: pointer;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-outline-light:hover {
+    border-color: rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.04);
+    transform: translateY(-1px);
   }
 </style>
 </head>
@@ -1162,7 +1281,7 @@
       <li><a href="#pricing">Pricing</a></li>
     </ul>
     <div class="nav-cta-group">
-      <a href="https://tempo.lifeospro.io" class="nav-cta-tempo" target="_blank">Tempo Lite — Coming Soon</a>
+      <a href="https://tempo.lifeospro.io" class="nav-cta-tempo" target="_blank">Try Tempo Lite Free</a>
       <a href="#waitlist" class="nav-cta amber cta-link">Join the Waitlist →</a>
     </div>
     <button class="nav-mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show')" aria-label="Toggle menu">
@@ -1179,7 +1298,7 @@
     <div class="hero-content">
       <div class="hero-badge">
         <div class="hero-badge-dot"></div>
-        Beta launching March 2026
+        Now Live — Join the Beta
       </div>
       <h1>Stop drifting.<br>Start <em>operating.</em></h1>
       <p class="hero-sub">
@@ -1946,10 +2065,65 @@
       </div>
     </div>
 
-    <div class="tempo-ctas reveal">
-      <a href="https://tempo.lifeospro.io" class="btn-amber" target="_blank">Tempo Lite — Coming Soon</a>
-      <a href="#pricing" class="btn-secondary">See Life OS Pro →</a>
+    <!-- Plan comparison block -->
+    <div class="plan-compare-wrap reveal">
+      <div class="plan-compare-heading">
+        <h3>What you get with each plan</h3>
+        <p>Start with the financial engine. Upgrade when you're ready for the full operating system.</p>
+      </div>
+
+      <div class="plan-compare">
+
+        <!-- Tempo Lite -->
+        <div class="plan-col tempo">
+          <div class="plan-col-badge">Start Here</div>
+          <div class="plan-col-name">Tempo Lite</div>
+          <div class="plan-col-price">$4.99 / month</div>
+          <div class="plan-divider"></div>
+          <ul class="plan-check-list">
+            <li><span class="chk">✓</span><span><strong>Safe-to-Spend</strong> — your real daily number</span></li>
+            <li><span class="chk">✓</span><span><strong>Phase System</strong> — budgeting by paycheck, not calendar</span></li>
+            <li><span class="chk">✓</span><span><strong>Bill Radar</strong> — see what's due in the next 7 days</span></li>
+            <li><span class="chk">✓</span><span><strong>FlowBot Alerts</strong> — structural deficit + liquidity trap warnings</span></li>
+            <li><span class="chk">✓</span><span><strong>Spending Budgets</strong> — track variable spending by category</span></li>
+            <li><span class="chk">✓</span><span><strong>Month-End Forecast</strong> — see what you'll have left</span></li>
+            <li><span class="chk">✓</span><span><strong>Bill Splitting</strong> — split large bills across phases</span></li>
+            <li class="plan-highlight">7-day free trial, then $4.99/month</li>
+          </ul>
+        </div>
+
+        <!-- Life OS Pro -->
+        <div class="plan-col pro">
+          <div class="plan-col-badge">The Full System</div>
+          <div class="plan-col-name">Life OS Pro</div>
+          <div class="plan-col-price">$9.99 / month — founding price</div>
+          <div class="plan-divider"></div>
+          <ul class="plan-check-list">
+            <li><span class="chk">✓</span><span>Everything in Tempo Lite, plus:</span></li>
+            <li><span class="chk">✓</span><span><strong>Life Strategy Architect</strong> — 4-quadrant vision planning</span></li>
+            <li><span class="chk">✓</span><span><strong>Quarterly Roadmap</strong> — professional + personal focus</span></li>
+            <li><span class="chk">✓</span><span><strong>One Big Habit</strong> per quarter</span></li>
+            <li><span class="chk">✓</span><span><strong>Weekly Momentum Commander</strong> — CEO Score + Flight Plan</span></li>
+            <li><span class="chk">✓</span><span><strong>Shared Memory</strong> — your goals inform your budget</span></li>
+            <li><span class="chk">✓</span><span><strong>Prime Directive</strong> — protects your personal life from professional ambition</span></li>
+            <li class="plan-highlight">Founding price: $9.99/month locked forever · Only 250 spots</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="plan-ctas">
+        <a href="https://tempo.lifeospro.io" class="btn-amber" target="_blank">
+          Start with Tempo Lite — Free Trial
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a href="#waitlist" class="btn-outline-light cta-link">
+          Join Life OS Pro — Founding 250
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+      </div>
     </div>
+
   </div>
 </section>
 
@@ -2263,7 +2437,7 @@
           <span class="cta-path-label tempo">Start with your money.</span>
           <h3>Know exactly what you can spend.</h3>
           <p>Tempo Lite gives you one trusted number — Safe-to-Spend — in under 15 minutes. Free for 7 days. $4.99/month after.</p>
-          <a href="https://tempo.lifeospro.io" class="btn-amber" target="_blank">Tempo Lite — Coming Soon</a>
+          <a href="https://tempo.lifeospro.io" class="btn-amber" target="_blank">Start Free Trial — 7 Days</a>
         </div>
 
         <!-- Divider -->
