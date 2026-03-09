@@ -125,6 +125,7 @@
     padding: 16px 0;
     background: rgba(10,11,15,0.8);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--glass-border);
     transition: all 0.3s ease;
   }
@@ -1081,12 +1082,7 @@
   .tempo-bill-due { font-size: 0.7rem; color: var(--text-tertiary); margin-top: 2px; }
   .tempo-bill-right { display: flex; align-items: center; gap: 8px; }
   .tempo-bill-amt { font-family: 'JetBrains Mono', monospace; font-weight: 500; }
-  .tempo-pay-btn {
-    font-size: 0.6rem; font-weight: 700; padding: 3px 8px;
-    border-radius: 4px; background: rgba(245,158,11,0.12);
-    color: var(--accent-amber); border: 1px solid rgba(245,158,11,0.2);
-    cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em;
-  }
+  /* .tempo-pay-btn moved to TOUCH TARGETS block */
   .tempo-ctas {
     display: flex; gap: 16px; justify-content: center;
     margin-top: 48px; flex-wrap: wrap;
@@ -1148,6 +1144,47 @@
   }
   .cta-path p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px; font-weight: 300; }
 
+  /* ===== MOBILE NAV DROPDOWN ===== */
+  .nav-links.show {
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: rgba(10,11,15,0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid var(--glass-border);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding: 8px 24px 20px;
+    z-index: 99;
+    gap: 0;
+  }
+  .nav-links.show li a {
+    padding: 14px 0; font-size: 1rem; display: block;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    color: var(--text-secondary);
+  }
+  .nav-links.show li:last-child a { border-bottom: none; }
+
+  /* ===== COMPARE TABLE SCROLL WRAPPER ===== */
+  .compare-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-top: 48px;
+    border-radius: var(--radius-lg);
+  }
+  .compare-table-wrap .compare-table { margin-top: 0; min-width: 560px; }
+
+  /* ===== TOUCH TARGETS ===== */
+  .tempo-pay-btn {
+    min-height: 44px; min-width: 44px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 0.6rem; font-weight: 700; padding: 3px 10px;
+    border-radius: 4px; background: rgba(245,158,11,0.12);
+    color: var(--accent-amber); border: 1px solid rgba(245,158,11,0.2);
+    cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em;
+  }
+
   /* ===== ANIMATIONS ===== */
   @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(20px); }
@@ -1180,6 +1217,10 @@
     .nav-links { display: none; }
     .nav-mobile-toggle { display: block; }
     .nav-cta-tempo { display: none; }
+    .nav-cta-group { display: none; }
+    .app-status-badge { display: none; }
+    .cta-box { padding: 48px 20px; }
+    .hub-arrow-row { flex-wrap: wrap; border-radius: var(--radius-md); }
     .hero-stats { gap: 24px; flex-wrap: wrap; }
     .hero-actions { flex-direction: column; }
     .hero-actions .btn-primary, .hero-actions .btn-secondary { width: 100%; justify-content: center; text-align: center; }
@@ -1205,6 +1246,17 @@
     .plan-compare { grid-template-columns: 1fr; }
     .plan-ctas { flex-direction: column; }
     .plan-ctas a { width: 100%; text-align: center; justify-content: center; }
+  }
+
+  /* ===== REDUCED MOTION ===== */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .reveal.visible { opacity: 1; transform: none; }
   }
 
   /* ===== PLAN COMPARISON BLOCK ===== */
@@ -1346,7 +1398,7 @@
       <a href="https://tempo.lifeospro.io" class="nav-cta-tempo" target="_blank">Try Tempo Lite Free</a>
       <a href="#waitlist" class="nav-cta amber cta-link">Join the Waitlist →</a>
     </div>
-    <button class="nav-mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show')" aria-label="Toggle menu">
+    <button class="nav-mobile-toggle" id="nav-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false">
       <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
     </button>
   </div>
@@ -1965,6 +2017,7 @@
       </p>
     </div>
     
+    <div class="compare-table-wrap">
     <table class="compare-table reveal">
       <thead>
         <tr>
@@ -2055,6 +2108,7 @@
         </tr>
       </tbody>
     </table>
+    </div><!-- /.compare-table-wrap -->
   </div>
 </section>
 
@@ -2597,6 +2651,34 @@ if (SITE_MODE === "live") {
   });
 }
 
+// Mobile nav toggle
+function toggleMobileMenu() {
+  const links = document.querySelector('.nav-links');
+  const toggle = document.getElementById('nav-toggle');
+  const isOpen = links.classList.toggle('show');
+  toggle.setAttribute('aria-expanded', isOpen);
+}
+
+// Close mobile menu when any nav link is clicked
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.querySelector('.nav-links').classList.remove('show');
+    const toggle = document.getElementById('nav-toggle');
+    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+  });
+});
+
+// Close mobile menu on outside click
+document.addEventListener('click', e => {
+  const nav = document.getElementById('navbar');
+  const links = document.querySelector('.nav-links');
+  if (links && links.classList.contains('show') && !nav.contains(e.target)) {
+    links.classList.remove('show');
+    const toggle = document.getElementById('nav-toggle');
+    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+  }
+});
+
 // Nav scroll effect
 const nav = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
@@ -2667,6 +2749,10 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     e.preventDefault();
     const target = document.querySelector(a.getAttribute('href'));
     if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Close mobile menu on nav link click
+    document.querySelector('.nav-links').classList.remove('show');
+    const toggle = document.getElementById('nav-toggle');
+    if (toggle) toggle.setAttribute('aria-expanded', 'false');
   });
 });
 </script>
