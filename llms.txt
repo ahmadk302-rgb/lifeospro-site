@@ -22,19 +22,19 @@ Life OS Pro replaces the need to juggle tools like Notion (for goals), YNAB (for
 - **Card Reserve**: Internal ledger tracking credit card purchases not yet paid from the bank, ensuring Safe-to-Spend remains truthful even when spending on cards.
 - **Liquidity Trap**: A warning when Phase 1 shows a surplus but Phase 2 is underwater, preventing users from spending early cash that's needed later.
 
-## Tempo Lite — Standalone Budgeting App
+## Tempo — Standalone Budgeting App
 
-Tempo Lite is the standalone financial clarity layer of Life OS Pro, available as a separate product at https://tempo.lifeospro.io. It is a Progressive Web App (PWA) focused on one core question: "What can I safely spend right now without missing a bill?"
+Tempo is the standalone financial clarity layer of Life OS Pro, available as a separate product at https://tempo.lifeospro.io. It is a Progressive Web App (PWA) focused on one core question: "What can I safely spend right now without missing a bill?"
 
 - **Safe-to-Spend**: Real-time number based on Current Balance − Safety Buffer − Unpaid Phase Bills
 - **Phase System**: Month split into Phase 1 (days 1–15) and Phase 2 (days 16–end) aligned with paycheck cycles
 - **Bill Radar**: Overdue and upcoming bills with one-tap mark-paid
 - **FlowBot Diagnostics**: 5 financial health statuses — healthy, liquidity trap, structural deficit, low liquidity, over budget
 - **Spending Budgets**: 16 default categories with planned vs. actual tracking and month-end savings forecast
-- **Pricing**: 7-day free trial, then Lite at $4.99/month or Pro at $9.99/month (founding rate, locked forever)
+- **Pricing**: 7-day free trial, then $4.99/month or Pro at $9.99/month (founding rate, locked forever)
 - **No bank connection required** — manual balance entry for maximum privacy
 
-Tempo Lite is the entry point for users who need financial clarity before tackling the full Life OS Pro system. Pro tier of Tempo Lite unlocks all Life OS Pro modules.
+Tempo is the entry point for users who need financial clarity before tackling the full Life OS Pro system. Pro tier of Tempo unlocks all Life OS Pro modules.
 
 ## Differentiators vs Competitors
 
