@@ -1890,6 +1890,54 @@
       </div>
     </div>
     
+    <!-- Feature: Bank Sync -->
+    <div class="feature-row">
+      <div class="feature-text reveal">
+        <div class="section-eyebrow" style="color:var(--accent-emerald);">Bank Sync — Powered by Plaid</div>
+        <h3>Your bank, connected. Your spending, auto-categorized.</h3>
+        <p>Link your bank accounts and credit cards in seconds. Transactions auto-import with smart category matching — no more manual logging. Your Safe-to-Spend updates with real balances, and every transaction gets tagged to the right budget automatically. Manual entry still works alongside it, so cash purchases and splits are never lost.</p>
+      </div>
+      <div class="feature-visual reveal">
+        <div class="sts-widget">
+          <div class="sts-label" style="color:var(--accent-emerald);">Bank Sync Active</div>
+          <div style="padding:10px 0 6px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,0.06);">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(52,211,153,0.12);display:flex;align-items:center;justify-content:center;">
+                <span style="font-size:16px;">🏦</span>
+              </div>
+              <div style="flex:1;">
+                <div style="font-family:'Outfit',sans-serif;font-size:14px;color:var(--text-primary);font-weight:500;">Chase Checking ••4821</div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent-emerald);margin-top:2px;">Connected · Last synced 2 min ago</div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border-radius:8px;background:rgba(255,255,255,0.03);">
+                <div>
+                  <div style="font-family:'Outfit',sans-serif;font-size:13px;color:var(--text-primary);">Whole Foods</div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-tertiary);margin-top:1px;">Groceries · Auto</div>
+                </div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--text-primary);">$67.34</div>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border-radius:8px;background:rgba(255,255,255,0.03);">
+                <div>
+                  <div style="font-family:'Outfit',sans-serif;font-size:13px;color:var(--text-primary);">Netflix</div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-tertiary);margin-top:1px;">Subscriptions · Auto</div>
+                </div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--text-primary);">$15.99</div>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border-radius:8px;background:rgba(255,255,255,0.03);">
+                <div>
+                  <div style="font-family:'Outfit',sans-serif;font-size:13px;color:var(--text-primary);">Coffee shop</div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--accent-amber);margin-top:1px;">Food · Manual</div>
+                </div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--text-primary);">$5.50</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Feature 2: Phase System -->
     <div class="feature-row">
       <div class="feature-text reveal">
@@ -2210,8 +2258,8 @@
           <td>Bank aggregation (Plaid)</td>
           <td><span class="check">✓ Strong</span></td>
           <td><span class="check">✓ Strong</span></td>
-          <td><span class="miss">—</span></td>
-          <td><span class="partial">In development</span></td>
+          <td><span class="check">✓ Auto-import + manual</span></td>
+          <td><span class="check">✓ Auto-import + manual</span></td>
         </tr>
         <tr>
           <td>Net worth tracking</td>
@@ -2248,6 +2296,7 @@
           <li><strong>Month-End Forecast</strong> — know if you're on track before it's too late</li>
           <li><strong>Spending Budgets</strong> — weekly category check-ins, not per-transaction entry</li>
           <li><strong>FlowBot Alerts</strong> — one-sentence system status (no jargon, no dashboards)</li>
+          <li><strong>Bank Sync (Plaid)</strong> — connect your bank, auto-import transactions with smart categories</li>
           <li><strong>Bill Splitting</strong> — split large bills like rent across both phases</li>
         </ul>
       </div>
@@ -2328,6 +2377,7 @@
             <li><span class="chk">✓</span><span><strong>Bill Radar</strong> — see what's due in the next 7 days</span></li>
             <li><span class="chk">✓</span><span><strong>FlowBot Alerts</strong> — structural deficit + liquidity trap warnings</span></li>
             <li><span class="chk">✓</span><span><strong>Spending Budgets</strong> — track variable spending by category</span></li>
+            <li><span class="chk">✓</span><span><strong>Bank Sync (Plaid)</strong> — auto-import transactions from your bank</span></li>
             <li><span class="chk">✓</span><span><strong>Month-End Forecast</strong> — see what you'll have left</span></li>
             <li><span class="chk">✓</span><span><strong>Bill Splitting</strong> — split large bills across phases</span></li>
             <li class="plan-highlight">7-day free trial, then $4.99/month</li>
@@ -2558,7 +2608,7 @@
       <div class="faq-item reveal">
         <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Do I have to enter transactions manually?</div>
         <div class="faq-answer">
-          <p>Right now, yes, and that's by design for beta. Manual entry creates mindfulness around spending. That said, Plaid integration (automatic bank sync) is planned for a future update. When it arrives, you'll get the best of both worlds: automatic data with intentional review.</p>
+          <p>You can do both. Connect your bank via Plaid and transactions auto-import with smart category matching. You can also log transactions manually — both sources live side-by-side, so nothing gets double-counted. Manual entries are great for cash spending or splitting purchases. The best of both worlds: automatic data with intentional control.</p>
         </div>
       </div>
       <div class="faq-item reveal">
@@ -2626,6 +2676,7 @@
           <li>Month-End Forecast</li>
           <li>Spending Budgets (weekly check-in)</li>
           <li>FlowBot alerts</li>
+          <li>Bank sync (Plaid) — auto-import transactions</li>
           <li>Bill splitting across phases</li>
         </ul>
         <a href="https://tempo.lifeospro.io" class="btn-amber" target="_blank" style="width:100%; justify-content:center;">Try Free for 7 Days</a>
