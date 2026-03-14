@@ -94,6 +94,8 @@
     --accent-purple: #a78bfa;
     --accent-red: #f87171;
     --accent-red-glow: rgba(248,113,113,0.12);
+    --accent-rose: #fb7185;
+    --accent-rose-glow: rgba(251,113,133,0.12);
     --radius-sm: 8px;
     --radius-md: 12px;
     --radius-lg: 20px;
@@ -403,6 +405,7 @@
   .module-card:nth-child(2)::before { background: linear-gradient(90deg, var(--accent-emerald), var(--accent-blue)); }
   .module-card:nth-child(3)::before { background: linear-gradient(90deg, var(--accent-amber), var(--accent-emerald)); }
   .module-card:nth-child(4)::before { background: linear-gradient(90deg, var(--accent-purple), var(--accent-indigo)); }
+  .module-card:nth-child(5)::before { background: linear-gradient(90deg, var(--accent-rose), var(--accent-red)); }
   
   .module-icon {
     width: 48px; height: 48px; border-radius: var(--radius-sm);
@@ -413,6 +416,7 @@
   .module-card:nth-child(2) .module-icon { background: var(--accent-emerald-glow); color: var(--accent-emerald); }
   .module-card:nth-child(3) .module-icon { background: var(--accent-amber-glow); color: var(--accent-amber); }
   .module-card:nth-child(4) .module-icon { background: var(--accent-indigo-glow); color: var(--accent-indigo); }
+  .module-card:nth-child(5) .module-icon { background: var(--accent-rose-glow); color: var(--accent-rose); }
   
   .module-label {
     font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;
@@ -422,6 +426,7 @@
   .module-card:nth-child(2) .module-label { color: var(--accent-emerald); }
   .module-card:nth-child(3) .module-label { color: var(--accent-amber); }
   .module-card:nth-child(4) .module-label { color: var(--accent-indigo); }
+  .module-card:nth-child(5) .module-label { color: var(--accent-rose); }
   
   .module-title { font-size: 1.4rem; font-weight: 600; margin-bottom: 12px; letter-spacing: -0.01em; }
   .module-desc { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px; font-weight: 300; }
@@ -437,6 +442,7 @@
   .module-card:nth-child(2) .module-features li::before { color: var(--accent-emerald); }
   .module-card:nth-child(3) .module-features li::before { color: var(--accent-amber); }
   .module-card:nth-child(4) .module-features li::before { color: var(--accent-indigo); }
+  .module-card:nth-child(5) .module-features li::before { color: var(--accent-rose); }
 
   /* ===== INTEGRATION / FLOW SECTION ===== */
   .flow-section { background: var(--bg-surface); }
@@ -482,12 +488,12 @@
   /* ===== INTEGRATION HUB DIAGRAM ===== */
   .integration-hub { margin-top: 64px; position: relative; }
   .hub-diagram {
-    display: grid; grid-template-columns: 1fr 200px 1fr; grid-template-rows: auto auto;
+    display: grid; grid-template-columns: 1fr 200px 1fr; grid-template-rows: auto auto auto;
     gap: 24px; align-items: center; justify-items: center;
     max-width: 900px; margin: 0 auto;
   }
   .hub-center {
-    grid-column: 2; grid-row: 1 / 3;
+    grid-column: 2; grid-row: 1 / 4;
     width: 180px; height: 180px; border-radius: 50%;
     background: linear-gradient(135deg, rgba(52,211,153,0.08), rgba(96,165,250,0.08), rgba(167,139,250,0.08));
     border: 2px solid rgba(52,211,153,0.2);
@@ -1620,9 +1626,9 @@
   <div class="container">
     <div style="text-align:center;">
       <div class="section-eyebrow reveal">The Solution</div>
-      <h2 class="section-heading reveal">Four modules. One operating system.</h2>
+      <h2 class="section-heading reveal">Five modules. One operating system.</h2>
       <p class="section-sub reveal" style="margin:0 auto;">
-        Life OS Pro replaces your fragmented tool stack with an integrated system where your vision, money, projects, and execution share the same brain.
+        Life OS Pro replaces your fragmented tool stack with an integrated system where your vision, money, debt payoff, projects, and execution share the same brain.
       </p>
     </div>
     
@@ -1654,8 +1660,21 @@
       </div>
       
       <div class="module-card reveal">
-        <div class="module-icon">🎖️</div>
+        <div class="module-icon">🔓</div>
         <div class="module-label">Module 3</div>
+        <div class="module-title">Debt Freedom Engine</div>
+        <p class="module-desc">The only debt payoff tool that lives inside your budget. See exactly how debt payoff affects your cash flow, goals, and weekly execution — not in a separate app.</p>
+        <ul class="module-features">
+          <li>Avalanche, Snowball, or Hybrid strategies</li>
+          <li>Month-by-month payoff simulation</li>
+          <li>Auto-linked bills for minimum payments</li>
+          <li>What-If scenarios before you commit</li>
+        </ul>
+      </div>
+
+      <div class="module-card reveal">
+        <div class="module-icon">🎖️</div>
+        <div class="module-label">Module 4</div>
         <div class="module-title">Weekly Momentum Commander</div>
         <p class="module-desc">A ruthless weekly accountability coach that turns your vision and budget into a concrete Flight Plan every Sunday.</p>
         <ul class="module-features">
@@ -1668,7 +1687,7 @@
       
       <div class="module-card reveal">
         <div class="module-icon">🚀</div>
-        <div class="module-label">Module 4</div>
+        <div class="module-label">Module 5</div>
         <div class="module-title">Project Portfolio OS</div>
         <p class="module-desc">Multi-project tracking with budget oversight, milestone management, and a hard 3-project active limit that prevents overcommitment.</p>
         <ul class="module-features">
@@ -1687,9 +1706,9 @@
   <div class="container">
     <div style="text-align:center;">
       <div class="section-eyebrow reveal">Shared Memory Architecture</div>
-      <h2 class="section-heading reveal">Four modules. One shared brain.</h2>
+      <h2 class="section-heading reveal">Five modules. One shared brain.</h2>
       <p class="section-sub reveal" style="margin:0 auto;">
-        This is not four separate apps bolted together. Life OS Pro uses a Shared Memory Spine so every module reads and writes to the same context, eliminating drift by design.
+        This is not five separate apps bolted together. Life OS Pro uses a Shared Memory Spine so every module reads and writes to the same context, eliminating drift by design.
       </p>
     </div>
     
@@ -1771,6 +1790,15 @@
             <strong>Receives:</strong> Big 3 from roadmap, budget from Tempo, project risks
           </div>
         </div>
+
+        <div class="hub-node left" style="justify-self:end;">
+          <div class="hub-node-icon">🔓</div>
+          <div class="hub-node-name" style="color:var(--accent-rose);">Debt Engine</div>
+          <div class="hub-node-sends">
+            <strong>Sends:</strong> Debt summary, payoff %, stall alerts, DTI warnings<br>
+            <strong>Receives:</strong> Cash flow from Tempo, HAVE goals from Architect
+          </div>
+        </div>
       </div>
       
       <!-- Key data flow arrows -->
@@ -1804,6 +1832,18 @@
           <span class="arrow">→</span>
           <span style="color:var(--accent-amber);">Commander</span>
           <span style="color:var(--text-tertiary); margin-left:8px;">Stuck projects and deadline risks surface in weekly digest</span>
+        </div>
+        <div class="hub-arrow-row">
+          <span style="color:var(--accent-rose);">Debt Engine</span>
+          <span class="arrow">→</span>
+          <span style="color:var(--accent-emerald);">Tempo</span>
+          <span style="color:var(--text-tertiary); margin-left:8px;">Debt payments auto-create bills, payoffs free up Safe-to-Spend</span>
+        </div>
+        <div class="hub-arrow-row">
+          <span style="color:var(--accent-rose);">Debt Engine</span>
+          <span class="arrow">→</span>
+          <span style="color:var(--accent-amber);">Commander</span>
+          <span style="color:var(--text-tertiary); margin-left:8px;">Debt progress, stall detection, and payoff celebrations in weekly reviews</span>
         </div>
       </div>
     </div>
@@ -1882,7 +1922,80 @@
       </div>
     </div>
     
-    <!-- Feature 3: CEO Score -->
+    <!-- Feature 3: Debt Freedom Engine -->
+    <div class="feature-row">
+      <div class="feature-text reveal">
+        <div class="section-eyebrow">Debt Freedom Engine</div>
+        <h3>The only debt payoff tool that lives inside your budget.</h3>
+        <p>Other apps track debt in isolation. Life OS Pro connects your debt payoff plan to your cash flow, goals, and weekly execution. When you pay off a debt, your Safe-to-Spend goes up, your budget reallocates, and Commander celebrates the win. No other tool does this.</p>
+      </div>
+      <div class="feature-visual reveal">
+        <div style="background:var(--bg-card); border:1px solid var(--glass-border); border-radius:var(--radius-lg); padding:28px; font-family:'JetBrains Mono',monospace; font-size:0.75rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+            <div>
+              <div style="color:var(--accent-rose); font-size:0.65rem; text-transform:uppercase; letter-spacing:0.1em;">Debt Freedom Engine</div>
+              <div style="font-family:'Outfit',sans-serif; font-size:1.1rem; font-weight:600; margin-top:4px;">3 Active Debts</div>
+            </div>
+            <div style="background:rgba(251,113,133,0.12); color:var(--accent-rose); padding:4px 12px; border-radius:100px; font-size:0.7rem;">Avalanche Strategy</div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:14px;">
+            <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:var(--radius-sm); padding:14px;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <div>
+                  <span style="font-family:'Outfit',sans-serif; font-weight:500;">Chase Sapphire</span>
+                  <span style="color:var(--accent-red); font-size:0.65rem; margin-left:8px;">24.9% APR</span>
+                </div>
+                <span style="color:var(--accent-rose); font-size:0.7rem;">$4,200</span>
+              </div>
+              <div style="background:rgba(255,255,255,0.06); border-radius:100px; height:4px; margin-top:8px; overflow:hidden;">
+                <div style="background:var(--accent-rose); height:100%; width:65%; border-radius:100px;"></div>
+              </div>
+              <div style="display:flex; justify-content:space-between; margin-top:8px; color:var(--text-tertiary); font-size:0.65rem;">
+                <span>Payoff: 8 months</span>
+                <span style="color:var(--accent-emerald);">Saving $847 in interest</span>
+              </div>
+            </div>
+            <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:var(--radius-sm); padding:14px;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <div>
+                  <span style="font-family:'Outfit',sans-serif; font-weight:500;">Auto Loan</span>
+                  <span style="color:var(--accent-amber); font-size:0.65rem; margin-left:8px;">6.5% APR</span>
+                </div>
+                <span style="color:var(--accent-rose); font-size:0.7rem;">$12,400</span>
+              </div>
+              <div style="background:rgba(255,255,255,0.06); border-radius:100px; height:4px; margin-top:8px; overflow:hidden;">
+                <div style="background:var(--accent-amber); height:100%; width:35%; border-radius:100px;"></div>
+              </div>
+              <div style="display:flex; justify-content:space-between; margin-top:8px; color:var(--text-tertiary); font-size:0.65rem;">
+                <span>Payoff: 24 months</span>
+                <span>$389/mo minimum</span>
+              </div>
+            </div>
+            <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:var(--radius-sm); padding:14px;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <div>
+                  <span style="font-family:'Outfit',sans-serif; font-weight:500;">Student Loan</span>
+                  <span style="color:var(--accent-blue); font-size:0.65rem; margin-left:8px;">4.2% APR</span>
+                </div>
+                <span style="color:var(--accent-rose); font-size:0.7rem;">$18,750</span>
+              </div>
+              <div style="background:rgba(255,255,255,0.06); border-radius:100px; height:4px; margin-top:8px; overflow:hidden;">
+                <div style="background:var(--accent-blue); height:100%; width:15%; border-radius:100px;"></div>
+              </div>
+              <div style="display:flex; justify-content:space-between; margin-top:8px; color:var(--text-tertiary); font-size:0.65rem;">
+                <span>Payoff: 36 months</span>
+                <span>$245/mo minimum</span>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:16px; padding:10px 14px; background:rgba(52,211,153,0.08); border:1px solid rgba(52,211,153,0.15); border-radius:var(--radius-sm); color:var(--accent-emerald); font-size:0.7rem; font-family:'Outfit',sans-serif;">
+            Freedom date: March 2029. Paying off Chase first saves $847 in interest vs. Snowball.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature 4: CEO Score -->
     <div class="feature-row">
       <div class="feature-text reveal">
         <div class="section-eyebrow">Weekly Momentum Commander</div>
@@ -2043,6 +2156,20 @@
           <td><span class="miss">—</span></td>
           <td><span class="miss">—</span></td>
           <td><span class="check">✓ Card Reserve</span></td>
+        </tr>
+        <tr>
+          <td>Debt payoff engine (Avalanche/Snowball)</td>
+          <td><span class="miss">—</span></td>
+          <td><span class="miss">—</span></td>
+          <td><span class="miss">—</span></td>
+          <td><span class="check">✓ 3 strategies + simulation</span></td>
+        </tr>
+        <tr>
+          <td>Debt-to-budget integration</td>
+          <td><span class="miss">—</span></td>
+          <td><span class="miss">—</span></td>
+          <td><span class="miss">—</span></td>
+          <td><span class="check">✓ Auto-linked bills + cash flow</span></td>
         </tr>
         <tr>
           <td>Life goal planning (vision)</td>
@@ -2464,6 +2591,12 @@
           <p>Not at all. Life OS is built for power users who are already disciplined but frustrated that their tools don't connect. If you've outgrown spreadsheets, feel limited by YNAB's approach, or want your financial decisions to actually align with your life goals, this is for you. It's a system for people who want to be intentional, not just organized.</p>
         </div>
       </div>
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">How is the Debt Freedom Engine different from other debt apps?</div>
+        <div class="faq-answer">
+          <p>Every debt app shows you a payoff timeline in isolation. Life OS is the only system where paying off a debt actually changes your budget. When you add a debt, its minimum payment automatically becomes a bill in Tempo. When you pay it off, that money frees up your Safe-to-Spend immediately. Commander celebrates the win in your weekly review. Architect links debt payoff to your HAVE goals. It's not a separate tracker — it's integrated into how your entire financial life operates.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -2507,6 +2640,7 @@
         <div class="pricing-note">Locked for life. Never increases.</div>
         <ul class="pricing-features">
           <li>Everything in Tempo</li>
+          <li>Debt Freedom Engine (Avalanche, Snowball, Hybrid)</li>
           <li>Life Strategy Architect (4-Quadrant vision)</li>
           <li>Weekly Momentum Commander + CEO Score</li>
           <li>Project Portfolio OS</li>
@@ -2525,7 +2659,7 @@
         <div class="pricing-price">$14.99<span>/mo</span></div>
         <div class="pricing-note">After founding slots fill.</div>
         <ul class="pricing-features">
-          <li>All 4 modules (Architect, Tempo, Projects, Commander)</li>
+          <li>All 5 modules (Tempo, Debt, Architect, Commander, Projects)</li>
           <li>Shared Memory integration</li>
           <li>AI-powered coaching and analysis</li>
           <li>Community access</li>
@@ -2558,8 +2692,8 @@
         <!-- Path 2: Life OS Pro -->
         <div class="cta-path" style="text-align:center;">
           <span class="cta-path-label pro">Connect everything.</span>
-          <h3>Link your vision, money, and execution.</h3>
-          <p>Life OS Pro connects your goals, spending, projects, and weekly execution into one system. 250 founding spots at $9.99/month — locked for life.</p>
+          <h3>Link your vision, money, debt payoff, and execution.</h3>
+          <p>Life OS Pro connects your goals, spending, debt freedom plan, projects, and weekly execution into one system. 250 founding spots at $9.99/month — locked for life.</p>
           <a href="https://app.lifeospro.io" class="btn-primary" style="display:inline-flex;">Start Free Trial — 7 Days Free</a>
           <p style="font-size:0.75rem; color:var(--text-tertiary); margin-top:12px;">Sign in with Google. No credit card required to start.</p>
         </div>
