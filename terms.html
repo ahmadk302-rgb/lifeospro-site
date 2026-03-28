@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — Life OS Pro</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta name="description" content="Terms of Service for Tempo and Life OS Pro — subscription terms, acceptable use, and legal information.">
+<link rel="canonical" href="https://lifeospro.io/terms.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-deep: #0a0b0f;
+    --bg-surface: #12141a;
+    --bg-card: rgba(255,255,255,0.03);
+    --bg-card-hover: rgba(255,255,255,0.06);
+    --glass-border: rgba(255,255,255,0.08);
+    --glass-border-hover: rgba(255,255,255,0.15);
+    --text-primary: #f0f0f5;
+    --text-secondary: rgba(240,240,245,0.6);
+    --text-tertiary: rgba(240,240,245,0.35);
+    --accent-emerald: #34d399;
+    --accent-emerald-glow: rgba(52,211,153,0.15);
+    --accent-amber: #f59e0b;
+    --accent-amber-glow: rgba(245,158,11,0.15);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: 'Outfit', -apple-system, sans-serif;
+    background: var(--bg-deep);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== NAVIGATION ===== */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 16px 0;
+    background: rgba(10,11,15,0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+  }
+  nav.scrolled { padding: 10px 0; background: rgba(10,11,15,0.95); }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  }
+  .nav-logo {
+    font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em;
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none; color: var(--text-primary);
+  }
+  .nav-logo-mark {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--accent-emerald), #60a5fa);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700;
+    color: var(--bg-deep);
+  }
+  .nav-cta-group { display: flex; align-items: center; gap: 10px; }
+  .nav-cta {
+    background: var(--accent-emerald); color: var(--bg-deep);
+    padding: 10px 24px; border-radius: 100px; font-weight: 600;
+    font-size: 0.875rem; text-decoration: none; transition: all 0.2s;
+    border: none; cursor: pointer;
+  }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-emerald-glow); }
+  .nav-cta.amber { background: var(--accent-amber); }
+  .nav-cta.amber:hover { box-shadow: 0 4px 20px var(--accent-amber-glow); }
+  .nav-cta-tempo {
+    background: transparent; color: var(--accent-amber);
+    padding: 10px 18px; border-radius: 100px; font-weight: 600;
+    font-size: 0.875rem; text-decoration: none; transition: all 0.2s;
+    border: 1px solid rgba(245,158,11,0.4); cursor: pointer; white-space: nowrap;
+  }
+  .nav-cta-tempo:hover { background: rgba(245,158,11,0.08); border-color: var(--accent-amber); }
+
+  /* ===== CONTENT ===== */
+  .legal-content {
+    max-width: 800px; margin: 0 auto; padding: 140px 24px 80px;
+  }
+  .legal-content h1 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(2rem, 4vw, 3rem); font-weight: 400;
+    line-height: 1.1; margin-bottom: 8px;
+  }
+  .legal-subtitle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem; color: var(--text-tertiary);
+    text-transform: uppercase; letter-spacing: 0.1em;
+    margin-bottom: 48px;
+  }
+  .legal-content h2 {
+    font-size: 1.25rem; font-weight: 700; margin-top: 48px; margin-bottom: 16px;
+    color: var(--accent-emerald);
+  }
+  .legal-content h3 {
+    font-size: 1rem; font-weight: 600; margin-top: 24px; margin-bottom: 8px;
+  }
+  .legal-content p {
+    color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 16px;
+    font-weight: 300; line-height: 1.8;
+  }
+  .legal-content ul {
+    color: var(--text-secondary); font-size: 0.95rem; font-weight: 300;
+    margin-bottom: 16px; padding-left: 24px; line-height: 1.8;
+  }
+  .legal-content li { margin-bottom: 6px; }
+  .legal-content a { color: var(--accent-emerald); text-decoration: none; }
+  .legal-content a:hover { text-decoration: underline; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    padding: 48px 0; border-top: 1px solid var(--glass-border);
+    background: var(--bg-deep);
+  }
+  .footer-inner {
+    display: flex; justify-content: space-between; align-items: center;
+    max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  }
+  .footer-copy { font-size: 0.8rem; color: var(--text-tertiary); }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { color: var(--text-tertiary); text-decoration: none; font-size: 0.8rem; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--text-secondary); }
+
+  @media (max-width: 768px) {
+    .nav-cta-group { display: none; }
+    .nav-cta-tempo { display: none; }
+    .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <div class="nav-logo-mark">OS</div>
+      Life OS Pro
+    </a>
+    <div class="nav-cta-group">
+      <a href="https://tempo.lifeospro.io" class="nav-cta-tempo" target="_blank">Try Tempo Free</a>
+      <a href="https://app.lifeospro.io" class="nav-cta amber">Start Free Trial</a>
+    </div>
+  </div>
+</nav>
+
+<main class="legal-content">
+  <h1>Terms of Service</h1>
+  <p class="legal-subtitle">Tempo &mdash; Phase Budgeting &amp; Life OS Pro &bull; Last updated: March 27, 2026</p>
+
+  <h2>1. Agreement to Terms</h2>
+  <p>By accessing or using Tempo or Life OS Pro (the "Services"), operated by Life OS Pro LLC ("we," "us," or "our"), you agree to be bound by these Terms of Service. If you do not agree, do not use the Services.</p>
+
+  <h2>2. Description of Services</h2>
+  <p>Tempo is a phase-based budgeting application. Life OS Pro is a personal operating system that connects your vision, finances, and weekly execution. Both are web-based software-as-a-service products.</p>
+
+  <h2>3. Account Registration</h2>
+  <p>You must provide accurate information when creating an account. You are responsible for maintaining the security of your account credentials. You must be at least 13 years old to use the Services.</p>
+
+  <h2>4. Subscription Terms</h2>
+
+  <h3>Pricing</h3>
+  <p>Life OS Pro is available at $4.99/month (or as otherwise displayed at the time of purchase). Pricing may change with 30 days' notice.</p>
+
+  <h3>Free Trial</h3>
+  <p>New users receive a 7-day free trial. You will not be charged during the trial period. If you do not cancel before the trial ends, your subscription will begin and you will be charged.</p>
+
+  <h3>Billing</h3>
+  <p>Subscriptions are billed monthly through Stripe. Payments are processed automatically on your billing date.</p>
+
+  <h3>Cancellation</h3>
+  <p>You may cancel your subscription at any time from Settings. Cancellation takes effect at the end of your current billing period. You will retain access until then.</p>
+
+  <h3>Refunds</h3>
+  <p>Due to the digital nature of the Services, we generally do not offer refunds for subscription payments. You may cancel at any time to prevent future charges. If you believe you were charged in error, contact us at <a href="mailto:privacy@lifeospro.io">privacy@lifeospro.io</a>.</p>
+
+  <h2>5. Acceptable Use</h2>
+  <p>You agree not to:</p>
+  <ul>
+    <li>Use the Services for any unlawful purpose</li>
+    <li>Attempt to gain unauthorized access to our systems or other users' accounts</li>
+    <li>Interfere with or disrupt the Services</li>
+    <li>Reverse engineer, decompile, or disassemble the Services</li>
+    <li>Use automated tools to scrape or extract data from the Services</li>
+    <li>Resell or redistribute the Services without our written consent</li>
+  </ul>
+
+  <h2>6. Your Data</h2>
+  <p>You retain ownership of all data you enter into the Services. We do not claim ownership of your financial data, goals, plans, or other content. See our <a href="/privacy.html">Privacy Policy</a> for details on how we handle your data.</p>
+
+  <h2>7. Third-Party Services</h2>
+  <p>The Services integrate with third-party providers including Plaid (bank connectivity), Stripe (payments), and Supabase (infrastructure). Your use of these integrations is subject to the respective third party's terms of service.</p>
+
+  <h2>8. Disclaimer of Warranties</h2>
+  <p>The Services are provided "as is" and "as available" without warranties of any kind, whether express or implied. We do not guarantee that the Services will be uninterrupted, error-free, or secure.</p>
+  <p>The Services are not financial advice. We are not financial advisors, and nothing in the Services constitutes investment, tax, or financial planning advice. Consult a qualified professional for financial decisions.</p>
+
+  <h2>9. Limitation of Liability</h2>
+  <p>To the maximum extent permitted by law, Life OS Pro LLC shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or other intangible losses, resulting from your use of the Services.</p>
+  <p>Our total liability for any claims arising from or related to the Services shall not exceed the amount you paid us in the 12 months preceding the claim.</p>
+
+  <h2>10. Indemnification</h2>
+  <p>You agree to indemnify and hold harmless Life OS Pro LLC from any claims, damages, or expenses arising from your use of the Services or violation of these Terms.</p>
+
+  <h2>11. Changes to Terms</h2>
+  <p>We may update these Terms from time to time. We will notify you of material changes via email or in-app notification at least 30 days before they take effect. Continued use of the Services after changes take effect constitutes acceptance.</p>
+
+  <h2>12. Termination</h2>
+  <p>We may suspend or terminate your account if you violate these Terms. You may delete your account at any time from Settings. Upon termination, your right to use the Services ceases immediately.</p>
+
+  <h2>13. Governing Law</h2>
+  <p>These Terms are governed by the laws of the State of Delaware, United States, without regard to conflict of law principles. Any disputes shall be resolved in the courts of Delaware.</p>
+
+  <h2>14. Contact Us</h2>
+  <p>
+    Life OS Pro LLC<br>
+    Email: <a href="mailto:privacy@lifeospro.io">privacy@lifeospro.io</a><br>
+    Website: <a href="https://lifeospro.io">lifeospro.io</a>
+  </p>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-copy">&copy; 2026 Life OS Pro. Built with intention.</div>
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Life OS Pro</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<meta name="description" content="Privacy Policy for Tempo and Life OS Pro — how we collect, use, and protect your data.">
+<link rel="canonical" href="https://lifeospro.io/privacy.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-deep: #0a0b0f;
+    --bg-surface: #12141a;
+    --bg-card: rgba(255,255,255,0.03);
+    --bg-card-hover: rgba(255,255,255,0.06);
+    --glass-border: rgba(255,255,255,0.08);
+    --glass-border-hover: rgba(255,255,255,0.15);
+    --text-primary: #f0f0f5;
+    --text-secondary: rgba(240,240,245,0.6);
+    --text-tertiary: rgba(240,240,245,0.35);
+    --accent-emerald: #34d399;
+    --accent-emerald-glow: rgba(52,211,153,0.15);
+    --accent-amber: #f59e0b;
+    --accent-amber-glow: rgba(245,158,11,0.15);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: 'Outfit', -apple-system, sans-serif;
+    background: var(--bg-deep);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== NAVIGATION ===== */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 16px 0;
+    background: rgba(10,11,15,0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+  }
+  nav.scrolled { padding: 10px 0; background: rgba(10,11,15,0.95); }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  }
+  .nav-logo {
+    font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em;
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none; color: var(--text-primary);
+  }
+  .nav-logo-mark {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--accent-emerald), #60a5fa);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700;
+    color: var(--bg-deep);
+  }
+  .nav-cta-group { display: flex; align-items: center; gap: 10px; }
+  .nav-cta {
+    background: var(--accent-emerald); color: var(--bg-deep);
+    padding: 10px 24px; border-radius: 100px; font-weight: 600;
+    font-size: 0.875rem; text-decoration: none; transition: all 0.2s;
+    border: none; cursor: pointer;
+  }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-emerald-glow); }
+  .nav-cta.amber { background: var(--accent-amber); }
+  .nav-cta.amber:hover { box-shadow: 0 4px 20px var(--accent-amber-glow); }
+  .nav-cta-tempo {
+    background: transparent; color: var(--accent-amber);
+    padding: 10px 18px; border-radius: 100px; font-weight: 600;
+    font-size: 0.875rem; text-decoration: none; transition: all 0.2s;
+    border: 1px solid rgba(245,158,11,0.4); cursor: pointer; white-space: nowrap;
+  }
+  .nav-cta-tempo:hover { background: rgba(245,158,11,0.08); border-color: var(--accent-amber); }
+
+  /* ===== CONTENT ===== */
+  .legal-content {
+    max-width: 800px; margin: 0 auto; padding: 140px 24px 80px;
+  }
+  .legal-content h1 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(2rem, 4vw, 3rem); font-weight: 400;
+    line-height: 1.1; margin-bottom: 8px;
+  }
+  .legal-subtitle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem; color: var(--text-tertiary);
+    text-transform: uppercase; letter-spacing: 0.1em;
+    margin-bottom: 48px;
+  }
+  .legal-content h2 {
+    font-size: 1.25rem; font-weight: 700; margin-top: 48px; margin-bottom: 16px;
+    color: var(--accent-emerald);
+  }
+  .legal-content h3 {
+    font-size: 1rem; font-weight: 600; margin-top: 24px; margin-bottom: 8px;
+  }
+  .legal-content p {
+    color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 16px;
+    font-weight: 300; line-height: 1.8;
+  }
+  .legal-content ul {
+    color: var(--text-secondary); font-size: 0.95rem; font-weight: 300;
+    margin-bottom: 16px; padding-left: 24px; line-height: 1.8;
+  }
+  .legal-content li { margin-bottom: 6px; }
+  .legal-content a { color: var(--accent-emerald); text-decoration: none; }
+  .legal-content a:hover { text-decoration: underline; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    padding: 48px 0; border-top: 1px solid var(--glass-border);
+    background: var(--bg-deep);
+  }
+  .footer-inner {
+    display: flex; justify-content: space-between; align-items: center;
+    max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  }
+  .footer-copy { font-size: 0.8rem; color: var(--text-tertiary); }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { color: var(--text-tertiary); text-decoration: none; font-size: 0.8rem; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--text-secondary); }
+
+  @media (max-width: 768px) {
+    .nav-cta-group { display: none; }
+    .nav-cta-tempo { display: none; }
+    .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <div class="nav-logo-mark">OS</div>
+      Life OS Pro
+    </a>
+    <div class="nav-cta-group">
+      <a href="https://tempo.lifeospro.io" class="nav-cta-tempo" target="_blank">Try Tempo Free</a>
+      <a href="https://app.lifeospro.io" class="nav-cta amber">Start Free Trial</a>
+    </div>
+  </div>
+</nav>
+
+<main class="legal-content">
+  <h1>Privacy Policy</h1>
+  <p class="legal-subtitle">Tempo &mdash; Phase Budgeting &amp; Life OS Pro &bull; Last updated: March 27, 2026</p>
+
+  <h2>1. Information We Collect</h2>
+
+  <h3>Account Information</h3>
+  <p>When you create an account, we collect your email address and password (encrypted).</p>
+
+  <h3>Financial Data</h3>
+  <p>If you connect your bank account via Plaid, we access:</p>
+  <ul>
+    <li>Account balances</li>
+    <li>Transaction history</li>
+  </ul>
+  <p>You can disconnect your bank at any time from Settings. We never store your bank login credentials.</p>
+
+  <h3>Usage Data</h3>
+  <p>We collect basic app usage data to improve the product, including features used and error reports.</p>
+
+  <h2>2. How We Use Your Information</h2>
+  <p>We use your information to:</p>
+  <ul>
+    <li>Provide and improve the Tempo and Life OS Pro services</li>
+    <li>Send account and subscription notifications</li>
+    <li>Respond to support requests</li>
+  </ul>
+  <p>We do not sell your personal information to third parties. We do not use your financial data for advertising.</p>
+
+  <h2>3. Data Sharing</h2>
+  <p>We share data only with:</p>
+  <ul>
+    <li><strong>Supabase</strong> &mdash; database and authentication</li>
+    <li><strong>Plaid</strong> &mdash; bank connectivity, if you choose to connect</li>
+    <li><strong>Stripe</strong> &mdash; payment processing</li>
+    <li><strong>Kit / ConvertKit</strong> &mdash; email communications</li>
+  </ul>
+  <p>All service providers are contractually required to protect your data.</p>
+
+  <h2>4. Data Security</h2>
+  <p>We use industry-standard encryption (TLS/HTTPS) for all data in transit. Financial data is encrypted at rest. We never store your bank credentials.</p>
+
+  <h2>5. Data Retention</h2>
+  <p>You can delete your account at any time from Settings. Upon deletion, your personal data is removed within 30 days.</p>
+
+  <h2>6. Your Rights</h2>
+  <p>You have the right to:</p>
+  <ul>
+    <li>Access your personal data</li>
+    <li>Correct inaccurate data</li>
+    <li>Delete your account and data</li>
+    <li>Export your data</li>
+  </ul>
+  <p>To exercise these rights, contact us at: <a href="mailto:privacy@lifeospro.io">privacy@lifeospro.io</a></p>
+
+  <h2>7. Children's Privacy</h2>
+  <p>Tempo and Life OS Pro are not intended for children under 13. We do not knowingly collect data from children under 13.</p>
+
+  <h2>8. Changes to This Policy</h2>
+  <p>We will notify you of significant changes via email or in-app notification.</p>
+
+  <h2>9. Contact Us</h2>
+  <p>
+    Life OS Pro LLC<br>
+    Email: <a href="mailto:privacy@lifeospro.io">privacy@lifeospro.io</a><br>
+    Website: <a href="https://lifeospro.io">lifeospro.io</a>
+  </p>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-copy">&copy; 2026 Life OS Pro. Built with intention.</div>
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+</script>
+
+</body>
+</html>
